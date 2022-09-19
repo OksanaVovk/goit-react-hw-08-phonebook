@@ -71,6 +71,8 @@ const RegisterForm = () => {
           type="password"
           name="password"
           value={password}
+          autoComplete="current-password"
+          n
           minLength="7"
           required
         />

@@ -6,6 +6,7 @@ import { useSelector } from 'react-redux';
 
 const AppBar = () => {
   const isLoggedIn = useSelector(state => state.auth.isLoggedIn);
+  console.log(isLoggedIn);
   return (
     <div>
       <header>

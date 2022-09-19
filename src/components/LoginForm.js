@@ -54,6 +54,7 @@ const LoginForm = () => {
           type="password"
           name="password"
           minLength={7}
+          autoComplete="current-password"
           required
         />
       </label>
