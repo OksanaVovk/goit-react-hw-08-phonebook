@@ -4,8 +4,17 @@ import LoginForm from './LoginForm';
 import RegisterForm from './RegisterForm';
 import Home from './Home';
 import Contacts from './Switch';
+import authOperations from 'redux/auth/auth-operations';
+import { useEffect } from 'react';
+import { useDispatch } from 'react-redux';
 
 export const App = () => {
+  const dispatch = useDispatch();
+
+  useEffect(() => {
+    dispatch(authOperations.fetchCurrentUser());
+  }, [dispatch]);
+
   return (
     <div>
       <AppBar />
