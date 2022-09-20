@@ -1,9 +1,9 @@
 import { useSelector, useDispatch } from 'react-redux';
 import { changeFilter } from '../redux/actions';
 import { useFetchContactsQuery } from 'redux/reducer';
-import ContactForm from './ContactForm';
-import Filter from './Filter';
-import ContactList from './ContactList';
+import ContactForm from '../components/ContactForm';
+import Filter from '../components/Filter';
+import ContactList from '../components/ContactList';
 import 'react-native-get-random-values';
 import { nanoid } from 'nanoid';
 

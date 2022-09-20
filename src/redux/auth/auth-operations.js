@@ -31,6 +31,7 @@ const logIn = createAsyncThunk('auth/login', async credentials => {
     console.log(data);
     return data;
   } catch (error) {
+    Notify.failure('Invalid login or password');
     console.error(error);
   }
 });

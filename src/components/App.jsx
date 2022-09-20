@@ -1,12 +1,21 @@
 import AppBar from './AppBar';
 import { Route, Routes } from 'react-router-dom';
-import LoginForm from './LoginForm';
-import RegisterForm from './RegisterForm';
-import Home from './Home';
-import Contacts from './Switch';
+// import LoginForm from '../Pages/LoginForm';
+// import RegisterForm from '../Pages/RegisterForm';
+// import Home from '../Pages/Home';
+// import Contacts from '../Pages/Contacts';
 import authOperations from 'redux/auth/auth-operations';
 import { useEffect } from 'react';
 import { useDispatch } from 'react-redux';
+import { lazy, Suspense } from 'react';
+import Spinner from './Spinner';
+import PrivateRoute from './PrivateRoute';
+import PublicRoute from './PublicRoute';
+
+const Home = lazy(() => import('../Pages/Home'));
+const Contacts = lazy(() => import('../Pages/Contacts'));
+const RegisterForm = lazy(() => import('../Pages/RegisterForm'));
+const LoginForm = lazy(() => import('../Pages/LoginForm'));
 
 export const App = () => {
   const dispatch = useDispatch();
@@ -18,12 +27,36 @@ export const App = () => {
   return (
     <div>
       <AppBar />
-      <Routes>
-        <Route path="/" element={<Home />} />
-        <Route path="/contacts" element={<Contacts />} />
-        <Route path="/register" element={<RegisterForm />} />
-        <Route path="/login" element={<LoginForm />} />
-      </Routes>
+      <Suspense fallback={<Spinner />}>
+        <Routes>
+          <Route path="/" element={<Home />} />
+          <Route
+            path="/contacts"
+            element={
+              <PrivateRoute>
+                <Contacts />
+              </PrivateRoute>
+            }
+          />
+
+          <Route
+            path="/register"
+            element={
+              <PublicRoute restricted>
+                <RegisterForm />
+              </PublicRoute>
+            }
+          />
+          <Route
+            path="/login"
+            element={
+              <PublicRoute restricted>
+                <LoginForm />
+              </PublicRoute>
+            }
+          />
+        </Routes>
+      </Suspense>
     </div>
   );
 };
