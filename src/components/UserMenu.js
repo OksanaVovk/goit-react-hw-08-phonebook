@@ -7,7 +7,7 @@ const UserMenu = () => {
   const name = useSelector(state => state.auth.user.name);
   return (
     <div>
-      <p>Hello ${name}</p>
+      <p>Hello {name}</p>
       <button type="button" onClick={() => dispatch(authOperations.logOut())}>
         Log Out
       </button>

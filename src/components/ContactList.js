@@ -4,7 +4,11 @@ import React from 'react';
 const ContactList = ({ contactArray }) => (
   <ul>
     {contactArray.map(contact => (
-      <ContactItem id={contact.id} name={contact.name} number={contact.phone} />
+      <ContactItem
+        id={contact.id}
+        name={contact.name}
+        number={contact.number}
+      />
     ))}
   </ul>
 );

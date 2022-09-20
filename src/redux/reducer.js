@@ -9,7 +9,16 @@ export const filter = createReducer('', {
 export const contactsApi = createApi({
   reducerPath: 'contacts',
   baseQuery: fetchBaseQuery({
-    baseUrl: 'https://631ae2aedc236c0b1ee694a0.mockapi.io/',
+    baseUrl: 'https://connections-api.herokuapp.com/',
+    prepareHeaders: (headers, { getState }) => {
+      const token = getState().auth.token;
+      // If we have a token set in state, let's assume that we should be passing it.
+      if (token) {
+        headers.set('authorization', `Bearer ${token}`);
+      }
+
+      return headers;
+    },
   }),
   tagTypes: ['Contact'],
   endpoints: builder => ({
@@ -19,7 +28,10 @@ export const contactsApi = createApi({
     }),
 
     deleteContact: builder.mutation({
-      query: id => ({ url: `/contacts/${id}`, method: 'DELETE' }),
+      query: id => ({
+        url: `/contacts/${id}`,
+        method: 'DELETE',
+      }),
       invalidatesTags: [`Contact`],
     }),
 

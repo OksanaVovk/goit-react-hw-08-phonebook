@@ -37,21 +37,33 @@ export default function ContactForm() {
 
   const handleSubmit = async event => {
     event.preventDefault();
-    const isRepead = data.some(contact =>
-      contact.name.toLowerCase().includes(name.toLowerCase())
-    );
-    if (isRepead) {
-      Notify.failure(`${name} is already in contacts`);
+
+    if (data) {
+      const isRepead = data.some(contact =>
+        contact.name.toLowerCase().includes(name.toLowerCase())
+      );
+      if (isRepead) {
+        Notify.failure(`${name} is already in contacts`);
+      } else {
+        try {
+          await createContact({ name: name, number: number });
+          Notify.success('A new contact has been created');
+        } catch {
+          console.log(Error);
+          Notify.warning('Contact could not be saved');
+        }
+      }
+      reset();
     } else {
       try {
-        await createContact({ name: name, phone: number });
+        await createContact({ name: name, number: number });
         Notify.success('A new contact has been created');
       } catch {
         console.log(Error);
         Notify.warning('Contact could not be saved');
       }
+      reset();
     }
-    reset();
   };
 
   return (
