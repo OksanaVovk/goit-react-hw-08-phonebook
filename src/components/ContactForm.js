@@ -47,7 +47,7 @@ export default function ContactForm() {
       } else {
         try {
           await createContact({ name: name, number: number });
-          Notify.success('A new contact has been created');
+          Notify.success('A new contact has been successfully created');
         } catch {
           console.log(Error);
           Notify.warning('Contact could not be saved');
