@@ -1,12 +1,13 @@
 import React from 'react';
-import { Link } from 'react-router-dom';
+import { Box } from './Box';
+import { LinkNav } from './AuthNav_styled';
 
 const AuthNav = () => {
   return (
-    <nav>
-      <Link to="/register">Registration</Link>
-      <Link to="/login">Login</Link>
-    </nav>
+    <Box as="nav" display="flex" flexDirection="row" gridGap="20px">
+      <LinkNav to="/register">Sign up</LinkNav>
+      <LinkNav to="/login">Log in</LinkNav>
+    </Box>
   );
 };
 

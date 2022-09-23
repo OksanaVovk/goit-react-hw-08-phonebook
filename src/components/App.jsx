@@ -12,6 +12,8 @@ import Spinner from './Spinner';
 import PrivateRoute from './PrivateRoute';
 import PublicRoute from './PublicRoute';
 import authSelector from 'redux/auth/auth-selectors';
+import SignIn from './FormEx';
+import { Box } from './Box';
 
 const Home = lazy(() => import('../Pages/Home'));
 const Contacts = lazy(() => import('../Pages/Contacts'));
@@ -30,11 +32,12 @@ export const App = () => {
 
   return (
     !isFetchingCurrentUser && (
-      <div>
+      <Box as="div">
         <AppBar />
         <Suspense fallback={<Spinner />}>
           <Routes>
             <Route path="/" element={<Home />} />
+            <Route path="/form" element={<SignIn />} />
             <Route
               path="/contacts"
               element={
@@ -62,7 +65,7 @@ export const App = () => {
             />
           </Routes>
         </Suspense>
-      </div>
+      </Box>
     )
   );
 };
