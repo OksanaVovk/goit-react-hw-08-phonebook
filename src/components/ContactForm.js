@@ -10,6 +10,7 @@ import CssBaseline from '@mui/material/CssBaseline';
 import TextField from '@mui/material/TextField';
 import Box from '@mui/material/Box';
 import Container from '@mui/material/Container';
+import Typography from '@mui/material/Typography';
 import { createTheme, ThemeProvider } from '@mui/material/styles';
 
 const themes = createTheme();
@@ -74,11 +75,21 @@ export default function ContactForm() {
 
   return (
     <ThemeProvider theme={themes}>
-      <Container component="main" maxWidth="xs">
+      <Container
+        component="main"
+        maxWidth="xs"
+        sx={{
+          marginLeft: 0,
+          marginRight: 0,
+        }}
+      >
         <CssBaseline />
+        <Typography component="h1" variant="h5" fontWeight="bold">
+          PhoneBook
+        </Typography>
         <Box
           sx={{
-            marginTop: 8,
+            marginTop: 4,
             display: 'flex',
             flexDirection: 'column',
             alignItems: 'start',
@@ -94,7 +105,7 @@ export default function ContactForm() {
               Name
               <TextField
                 margin="normal"
-                fullWidth
+                width="100%"
                 id="name"
                 autoFocus
                 type="text"

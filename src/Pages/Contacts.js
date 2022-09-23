@@ -31,9 +31,7 @@ export const Contacts = () => {
 
   return (
     <div>
-      <h1>Phonebook</h1>
       <ContactForm />
-      <h2>Contacts</h2>
       <Filter id={filtId} value={valueFilter} onChange={handleFilterChange} />
       {data && (
         <ContactList contactArray={valueFilter ? visiableContacts : data} />
