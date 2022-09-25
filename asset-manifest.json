@@ -1,22 +1,22 @@
 {
   "files": {
     "main.css": "/goit-react-hw-08-phonebook/static/css/main.addfbc43.css",
-    "main.js": "/goit-react-hw-08-phonebook/static/js/main.ccd6e32b.js",
-    "static/js/165.b6d06ecc.chunk.js": "/goit-react-hw-08-phonebook/static/js/165.b6d06ecc.chunk.js",
-    "static/js/605.ce6b43aa.chunk.js": "/goit-react-hw-08-phonebook/static/js/605.ce6b43aa.chunk.js",
+    "main.js": "/goit-react-hw-08-phonebook/static/js/main.485f2670.js",
+    "static/js/165.5538c960.chunk.js": "/goit-react-hw-08-phonebook/static/js/165.5538c960.chunk.js",
+    "static/js/605.507e7296.chunk.js": "/goit-react-hw-08-phonebook/static/js/605.507e7296.chunk.js",
     "static/js/984.650d4475.chunk.js": "/goit-react-hw-08-phonebook/static/js/984.650d4475.chunk.js",
     "static/js/262.4c39ffcb.chunk.js": "/goit-react-hw-08-phonebook/static/js/262.4c39ffcb.chunk.js",
     "static/media/golden_pages.jpg": "/goit-react-hw-08-phonebook/static/media/golden_pages.92dc477278b3fdad88a2.jpg",
     "index.html": "/goit-react-hw-08-phonebook/index.html",
     "main.addfbc43.css.map": "/goit-react-hw-08-phonebook/static/css/main.addfbc43.css.map",
-    "main.ccd6e32b.js.map": "/goit-react-hw-08-phonebook/static/js/main.ccd6e32b.js.map",
-    "165.b6d06ecc.chunk.js.map": "/goit-react-hw-08-phonebook/static/js/165.b6d06ecc.chunk.js.map",
-    "605.ce6b43aa.chunk.js.map": "/goit-react-hw-08-phonebook/static/js/605.ce6b43aa.chunk.js.map",
+    "main.485f2670.js.map": "/goit-react-hw-08-phonebook/static/js/main.485f2670.js.map",
+    "165.5538c960.chunk.js.map": "/goit-react-hw-08-phonebook/static/js/165.5538c960.chunk.js.map",
+    "605.507e7296.chunk.js.map": "/goit-react-hw-08-phonebook/static/js/605.507e7296.chunk.js.map",
     "984.650d4475.chunk.js.map": "/goit-react-hw-08-phonebook/static/js/984.650d4475.chunk.js.map",
     "262.4c39ffcb.chunk.js.map": "/goit-react-hw-08-phonebook/static/js/262.4c39ffcb.chunk.js.map"
   },
   "entrypoints": [
     "static/css/main.addfbc43.css",
-    "static/js/main.ccd6e32b.js"
+    "static/js/main.485f2670.js"
   ]
 }
