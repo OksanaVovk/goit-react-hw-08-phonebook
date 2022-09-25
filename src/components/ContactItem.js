@@ -2,8 +2,11 @@ import React from 'react';
 import { useDeleteContactMutation } from 'redux/reducer';
 import Spinner from './Spinner';
 import { Notify } from 'notiflix/build/notiflix-notify-aio';
+import { useDispatch } from 'react-redux';
+import { changeContact, toggleModal } from 'redux/actions';
 
-const ContactItem = ({ id, name, number, onBtnEditClick }) => {
+const ContactItem = ({ id, name, number }) => {
+  const dispatch = useDispatch();
   const [deleteContact, { isLoading: isDeleting }] = useDeleteContactMutation();
 
   const onBtnClick = async id => {
@@ -14,6 +17,11 @@ const ContactItem = ({ id, name, number, onBtnEditClick }) => {
       console.log(Error);
       Notify.warning('Deletion error');
     }
+  };
+
+  const onBtnEditClick = (id, name, number) => {
+    dispatch(toggleModal(true));
+    dispatch(changeContact({ id: id, name: name, number: number }));
   };
 
   return (

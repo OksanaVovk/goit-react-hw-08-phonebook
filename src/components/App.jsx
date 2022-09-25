@@ -1,6 +1,6 @@
 import AppBar from './AppBar';
 import { Route, Routes } from 'react-router-dom';
-import { useState } from 'react';
+// import { useState } from 'react';
 // import LoginForm from '../Pages/LoginForm';
 // import RegisterForm from '../Pages/RegisterForm';
 // import Home from '../Pages/Home';
@@ -23,24 +23,25 @@ const RegisterForm = lazy(() => import('../Pages/RegisterForm'));
 const LoginForm = lazy(() => import('../Pages/LoginForm'));
 
 export const App = () => {
-  const [showModal, setShowModal] = useState(false);
-  const [name, setName] = useState('');
-  const [id, setId] = useState('');
-  const [number, setNumber] = useState('');
-  const toggleModal = () => {
-    setShowModal(!showModal);
-  };
+  // const [showModal, setShowModal] = useState(false);
+  // const [name, setName] = useState('');
+  // const [id, setId] = useState('');
+  // const [number, setNumber] = useState('');
+  // const toggleModal = () => {
+  //   setShowModal(!showModal);
+  // };
   const dispatch = useDispatch();
   const isFetchingCurrentUser = useSelector(
     authSelector.getIsFetchingCurrentUser
   );
+  const showModal = useSelector(state => state.fatch.showModal);
 
-  const onBtnFetchClick = (id, name, number) => {
-    setId(id);
-    setName(name);
-    setNumber(number);
-    toggleModal();
-  };
+  // const onBtnFetchClick = (id, name, number) => {
+  //   setId(id);
+  //   setName(name);
+  //   setNumber(number);
+  //   toggleModal();
+  // };
 
   useEffect(() => {
     dispatch(authOperations.fetchCurrentUser());
@@ -49,14 +50,7 @@ export const App = () => {
   return (
     !isFetchingCurrentUser && (
       <Box as="div">
-        {showModal && (
-          <Modal
-            onClose={toggleModal}
-            id={id}
-            oldname={name}
-            oldnumber={number}
-          />
-        )}
+        {showModal && <Modal />}
         <AppBar />
         <Suspense fallback={<Spinner />}>
           <Routes>
@@ -66,7 +60,7 @@ export const App = () => {
               path="/contacts"
               element={
                 <PrivateRoute>
-                  <Contacts onBtnEditC={onBtnFetchClick} />
+                  <Contacts />
                 </PrivateRoute>
               }
             />

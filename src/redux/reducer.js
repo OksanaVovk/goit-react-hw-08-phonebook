@@ -1,14 +1,33 @@
 import { createReducer } from '@reduxjs/toolkit';
 import { createApi, fetchBaseQuery } from '@reduxjs/toolkit/query/react';
-import { changeFilter, changeId } from './actions';
+import { changeFilter, changeContact, toggleModal } from './actions';
+import { combineReducers } from '@reduxjs/toolkit';
+
+// for filter
 
 export const filter = createReducer('', {
   [changeFilter]: (_, action) => action.payload,
 });
 
-export const currentIdForChange = createReducer('', {
-  [changeId]: (_, action) => action.payload,
+// for fatch
+
+export const contactItem = createReducer(
+  { id: null, name: null, number: null },
+  {
+    [changeContact]: (_, action) => action.payload,
+  }
+);
+
+export const showModal = createReducer(false, {
+  [toggleModal]: (_, action) => action.payload,
 });
+
+export const fatchReducer = combineReducers({
+  contactItem,
+  showModal,
+});
+
+// for contactsList
 
 export const contactsApi = createApi({
   reducerPath: 'contacts',

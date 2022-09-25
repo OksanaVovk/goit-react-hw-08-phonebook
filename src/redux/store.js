@@ -2,7 +2,7 @@ import { configureStore } from '@reduxjs/toolkit';
 import { contactsApi } from './reducer';
 import { persistStore, persistReducer } from 'redux-persist';
 import storage from 'redux-persist/lib/storage';
-import { filter, currentIdForChange } from './reducer';
+import { filter, fatchReducer } from './reducer';
 import authReducer from './auth/auth-slice';
 import {
   FLUSH,
@@ -24,7 +24,7 @@ export const store = configureStore({
   reducer: {
     auth: persistReducer(authPersistConfig, authReducer),
     filter: filter,
-    currentIdForChange: currentIdForChange,
+    fatch: fatchReducer,
     [contactsApi.reducerPath]: contactsApi.reducer,
   },
 

@@ -8,7 +8,7 @@ const ContactList = ({ contactArray, onBtnEditCl }) => (
         id={contact.id}
         name={contact.name}
         number={contact.number}
-        onBtnEditClick={onBtnEditCl}
+        // onBtnEditClick={onBtnEditCl}
       />
     ))}
   </ul>
