@@ -8,7 +8,7 @@ const Navigation = () => {
   const isLoggedIn = useSelector(authSelector.getIsLoggedIn);
   return (
     <Box as="nav" display="flex" flexDirection="row" gridGap="20px">
-      <LinkNav to="/">Home</LinkNav>
+      <LinkNav to="/goit-react-hw-08-phonebook">Home</LinkNav>
       <LinkNav to="/form">Form</LinkNav>
       {isLoggedIn && <LinkNav to="/contacts">Contacts</LinkNav>}
     </Box>

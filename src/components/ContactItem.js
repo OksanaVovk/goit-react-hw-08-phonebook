@@ -3,7 +3,7 @@ import { useDeleteContactMutation } from 'redux/reducer';
 import Spinner from './Spinner';
 import { Notify } from 'notiflix/build/notiflix-notify-aio';
 
-const ContactItem = ({ id, name, number }) => {
+const ContactItem = ({ id, name, number, onBtnEditClick }) => {
   const [deleteContact, { isLoading: isDeleting }] = useDeleteContactMutation();
 
   const onBtnClick = async id => {
@@ -15,6 +15,7 @@ const ContactItem = ({ id, name, number }) => {
       Notify.warning('Deletion error');
     }
   };
+
   return (
     <li key={id}>
       <div className="item_cont">
@@ -23,6 +24,7 @@ const ContactItem = ({ id, name, number }) => {
           {isDeleting && <Spinner />}
           Delete
         </button>
+        <button onClick={() => onBtnEditClick(id, name, number)}>Edit</button>
       </div>
     </li>
   );

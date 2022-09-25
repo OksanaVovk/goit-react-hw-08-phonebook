@@ -1,9 +1,13 @@
 import { createReducer } from '@reduxjs/toolkit';
 import { createApi, fetchBaseQuery } from '@reduxjs/toolkit/query/react';
-import { changeFilter } from './actions';
+import { changeFilter, changeId } from './actions';
 
 export const filter = createReducer('', {
   [changeFilter]: (_, action) => action.payload,
+});
+
+export const currentIdForChange = createReducer('', {
+  [changeId]: (_, action) => action.payload,
 });
 
 export const contactsApi = createApi({
@@ -35,6 +39,15 @@ export const contactsApi = createApi({
       invalidatesTags: [`Contact`],
     }),
 
+    editeContact: builder.mutation({
+      query: ({ id, patch }) => ({
+        url: `/contacts/${id}`,
+        method: 'PATCH',
+        body: patch,
+      }),
+      invalidatesTags: [`Contact`],
+    }),
+
     addContact: builder.mutation({
       query: values => ({
         url: `/contacts`,
@@ -50,4 +63,5 @@ export const {
   useFetchContactsQuery,
   useDeleteContactMutation,
   useAddContactMutation,
+  useEditeContactMutation,
 } = contactsApi;
