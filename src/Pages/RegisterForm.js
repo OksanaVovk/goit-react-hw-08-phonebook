@@ -22,7 +22,6 @@ const RegisterForm = () => {
 
   const handleInputChange = event => {
     const { name, value } = event.currentTarget;
-    console.log(event.currentTarget.name);
     switch (name) {
       case 'name':
         setName(value);

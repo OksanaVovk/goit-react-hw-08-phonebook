@@ -61,16 +61,6 @@ const ContactItem = ({ id, name, number }) => {
         {name}:<span>{number}</span>
       </ListItemText>
     </ListItem>
-    // <li key={id}>
-    //   <div className="item_cont">
-    //     {name}:<span>{number}</span>
-    //     <button onClick={() => onBtnClick(id)} disabled={isDeleting}>
-    //       {isDeleting && <Spinner />}
-    //       Delete
-    //     </button>
-    //     <button onClick={() => onBtnEditClick(id, name, number)}>Edit</button>
-    //   </div>
-    // </li>
   );
 };
 

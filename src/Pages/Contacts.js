@@ -35,10 +35,7 @@ export const Contacts = () => {
       <ContactForm />
       <Filter id={filtId} value={valueFilter} onChange={handleFilterChange} />
       {data && (
-        <ContactList
-          contactArray={valueFilter ? visiableContacts : data}
-          // onBtnEditCl={onBtnEditC}
-        />
+        <ContactList contactArray={valueFilter ? visiableContacts : data} />
       )}
     </Box>
   );

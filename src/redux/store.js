@@ -18,7 +18,6 @@ const authPersistConfig = {
   storage: storage,
   whitelist: ['token'],
 };
-console.dir(authReducer);
 
 export const store = configureStore({
   reducer: {

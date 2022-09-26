@@ -1,14 +1,19 @@
 import { Box } from 'components/Box';
-// import phonebook from './phone-book-hi.png';
-import phonebook from './golden_pages.jpg';
-import { Text, Title } from './Home-styled';
+// import phonebook from './golden_pages.jpg';
+import phonebookClick from './phonebookClick.png';
+import { Text, Title, TextAccent } from './Home-styled';
+import { Link } from 'react-router-dom';
+import authSelector from 'redux/auth/auth-selectors';
+import { useSelector } from 'react-redux';
 
 const Home = () => {
-  const phoneBookimg = phonebook;
+  const isLoggedIn = useSelector(authSelector.getIsLoggedIn);
+  // const phoneBookimg = phonebook;
+  const clickPng = phonebookClick;
   return (
     <div>
       <Box padding="80px 40px" as="section">
-        <Title> Hello </Title>
+        <Title> Hello! </Title>
         <Text>
           In today's world, the phone has become such an indispensable accessory
           that it is almost impossible to imagine your life without it. If the
@@ -20,8 +25,25 @@ const Home = () => {
           own personal phone directory, in which you can easily add, search,
           edit and delete contacts.{' '}
         </Text>
+        <Box
+          display="flex"
+          alignItems="center"
+          flexDirection="row"
+          gridGap="40px"
+        >
+          <TextAccent>Let's go to your phone book</TextAccent>
+          {isLoggedIn ? (
+            <Link to="/contacts" className="imgLink">
+              <img src={clickPng} width="100px" alt=""></img>
+            </Link>
+          ) : (
+            <Link to="/login">
+              <img src={clickPng} width="100px" alt=""></img>
+            </Link>
+          )}
+        </Box>
       </Box>
-      <Box
+      {/* <Box
         as="section"
         display="block"
         width="100%"
@@ -29,8 +51,8 @@ const Home = () => {
         overflow="hidden"
         padding="0px"
       >
-        <img class="backgroundImg" src={phoneBookimg} alt=""></img>
-      </Box>
+        <img className="backgroundImg" src={phoneBookimg} alt=""></img>
+      </Box> */}
     </div>
   );
 };

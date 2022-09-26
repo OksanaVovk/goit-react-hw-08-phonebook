@@ -1,10 +1,9 @@
-import { useState } from 'react';
-// import { useState, useEffect } from 'react';
+// import { useState } from 'react';
+import { useState, useEffect } from 'react';
 import { useEditeContactMutation } from 'redux/reducer';
 import { createPortal } from 'react-dom';
 import Spinner from './Spinner';
 import { Notify } from 'notiflix/build/notiflix-notify-aio';
-
 import Button from '@mui/material/Button';
 import CssBaseline from '@mui/material/CssBaseline';
 import TextField from '@mui/material/TextField';
@@ -14,6 +13,7 @@ import Typography from '@mui/material/Typography';
 import { createTheme, ThemeProvider } from '@mui/material/styles';
 import { useDispatch, useSelector } from 'react-redux';
 import { toggleModal, changeContact } from 'redux/actions';
+import { AiOutlineClose } from 'react-icons/ai';
 
 const themes = createTheme();
 
@@ -52,8 +52,6 @@ export default function Modal() {
 
   const handleSubmit = async event => {
     event.preventDefault();
-    console.log(id);
-    console.log(patch);
     try {
       await editeContact({ id, patch });
       Notify.success('A contact has been successfully changed');
@@ -69,24 +67,25 @@ export default function Modal() {
     }
   };
 
-  // useEffect(() => {
-  //   const handleKeyDown = e => {
-  //     if (e.code === 'Escape') {
-  //       dispatch(toggleModal(false));
-  //     }
-  //   };
-  //   window.addEventListener('keydown', handleKeyDown);
-  // });
+  useEffect(() => {
+    const handleKeyDown = e => {
+      if (e.code === 'Escape') {
+        dispatch(toggleModal(false));
+      }
+    };
+    window.addEventListener('keydown', handleKeyDown);
+  });
 
-  // const handleBackdrop = e => {
-  //   if (e.currentTarget === e.target) {
-  //     dispatch(toggleModal(false));
-  //   }
-  // };
+  const onBtnClick = () => {
+    dispatch(toggleModal(false));
+  };
 
   return createPortal(
     <div className="overlay">
       <div className="modal">
+        <button onClick={() => onBtnClick()} className="modal_button">
+          <AiOutlineClose />
+        </button>
         <ThemeProvider theme={themes}>
           <Container
             component="main"

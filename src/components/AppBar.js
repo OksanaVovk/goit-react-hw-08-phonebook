@@ -4,6 +4,7 @@ import UserMenu from './UserMenu';
 import { Outlet } from 'react-router-dom';
 import { useSelector } from 'react-redux';
 import { Box } from './Box';
+import Logo from './Logo';
 
 const AppBar = () => {
   const isLoggedIn = useSelector(state => state.auth.isLoggedIn);
@@ -25,6 +26,7 @@ const AppBar = () => {
       borderBottomColor="#6b3704"
     >
       <Navigation />
+      <Logo />
       {isLoggedIn ? <UserMenu /> : <AuthNav />}
       <Outlet />
     </Box>
