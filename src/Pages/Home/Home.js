@@ -1,6 +1,5 @@
 import { Box } from 'components/Box';
-// import phonebook from './golden_pages.jpg';
-import phonebookClick from './phonebookClick.png';
+import phonebookClick from '../phonebookClick.png';
 import { Text, Title, TextAccent } from './Home-styled';
 import { Link } from 'react-router-dom';
 import authSelector from 'redux/auth/auth-selectors';

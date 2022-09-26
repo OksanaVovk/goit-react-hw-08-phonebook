@@ -1,5 +1,5 @@
 import React from 'react';
-import { Box } from './Box';
+import { Box } from '../Box';
 import { LinkNav } from './AuthNav_styled';
 
 const AuthNav = () => {

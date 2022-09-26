@@ -11,10 +11,10 @@ import authSelector from 'redux/auth/auth-selectors';
 import { Box } from './Box';
 import Modal from './Modal';
 
-const Home = lazy(() => import('../Pages/Home'));
+const Home = lazy(() => import('../Pages/Home/Home'));
 const Contacts = lazy(() => import('../Pages/Contacts'));
 const RegisterForm = lazy(() => import('../Pages/RegisterForm'));
-const LoginForm = lazy(() => import('../Pages/LoginForm'));
+const LoginForm = lazy(() => import('../Pages/LoginForm/LoginForm'));
 
 export const App = () => {
   const dispatch = useDispatch();

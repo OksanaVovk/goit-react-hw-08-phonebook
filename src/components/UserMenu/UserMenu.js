@@ -1,7 +1,7 @@
 import React from 'react';
 import authOperations from 'redux/auth/auth-operations';
 import { useSelector, useDispatch } from 'react-redux';
-import { Box } from './Box';
+import { Box } from '../Box';
 import Button from '@mui/material/Button';
 import { Text } from './UserMenu-styled';
 

@@ -1,10 +1,10 @@
-import Navigation from './Navigation';
-import AuthNav from './AuthNav';
-import UserMenu from './UserMenu';
+import Navigation from './Navigation/Navigation';
+import AuthNav from './AuthNav/AuthNav';
+import UserMenu from './UserMenu/UserMenu';
 import { Outlet } from 'react-router-dom';
 import { useSelector } from 'react-redux';
 import { Box } from './Box';
-import Logo from './Logo';
+import Logo from './Logo/Logo';
 
 const AppBar = () => {
   const isLoggedIn = useSelector(state => state.auth.isLoggedIn);

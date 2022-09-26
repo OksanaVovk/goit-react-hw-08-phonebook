@@ -2,7 +2,7 @@ import React from 'react';
 import authSelector from 'redux/auth/auth-selectors';
 import { useSelector } from 'react-redux';
 import { LinkNav } from './Navigation-styled';
-import { Box } from './Box';
+import { Box } from '../Box';
 
 const Navigation = () => {
   const isLoggedIn = useSelector(authSelector.getIsLoggedIn);
