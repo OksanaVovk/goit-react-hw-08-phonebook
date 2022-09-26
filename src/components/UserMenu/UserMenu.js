@@ -10,7 +10,7 @@ const UserMenu = () => {
   const name = useSelector(state => state.auth.user.name);
   return (
     <Box as="div" display="flex" flexDirection="row" gridGap="10px">
-      <Text>Hello {name}</Text>
+      <Text>{name}</Text>
       <Button
         type="button"
         variant="contained"
