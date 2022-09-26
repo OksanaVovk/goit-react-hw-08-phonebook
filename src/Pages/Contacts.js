@@ -6,6 +6,7 @@ import Filter from '../components/Filter';
 import ContactList from '../components/ContactList';
 import 'react-native-get-random-values';
 import { nanoid } from 'nanoid';
+import { Box } from 'components/Box';
 
 export const Contacts = () => {
   const { data } = useFetchContactsQuery();
@@ -30,7 +31,7 @@ export const Contacts = () => {
   const visiableContacts = getVisiableContacts();
 
   return (
-    <div>
+    <Box as="main" padding="40px">
       <ContactForm />
       <Filter id={filtId} value={valueFilter} onChange={handleFilterChange} />
       {data && (
@@ -39,7 +40,7 @@ export const Contacts = () => {
           // onBtnEditCl={onBtnEditC}
         />
       )}
-    </div>
+    </Box>
   );
 };
 

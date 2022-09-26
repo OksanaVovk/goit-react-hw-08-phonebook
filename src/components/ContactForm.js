@@ -76,7 +76,7 @@ export default function ContactForm() {
   return (
     <ThemeProvider theme={themes}>
       <Container
-        component="main"
+        component="div"
         maxWidth="xs"
         sx={{
           marginLeft: 0,

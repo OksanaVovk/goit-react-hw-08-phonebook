@@ -5,6 +5,7 @@ export const Title = styled.h1`
   color: ${p => p.theme.colors.text};
   font-size: ${p => p.theme.fontSizes.l};
   font-weight: ${p => p.theme.fontWeights.bold};
+  margin: 0 0 20px 0;
 `;
 
 export const Text = styled.p`
@@ -12,6 +13,7 @@ export const Text = styled.p`
   font-size: ${p => p.theme.fontSizes.m};
   font-weight: ${p => p.theme.fontWeights.normal};
   line-height: 1.8;
+  margin: 0;
 `;
 
 export const LinkBack = styled(NavLink)`

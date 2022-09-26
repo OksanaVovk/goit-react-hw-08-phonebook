@@ -10,7 +10,7 @@ const Filter = ({ id, value, onChange }) => (
     sx={{
       width: 500,
       maxWidth: '100%',
-      padding: '0 24px',
+      padding: '20px 24px',
     }}
   >
     <Typography

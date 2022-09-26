@@ -7,7 +7,7 @@ const Home = () => {
   const phoneBookimg = phonebook;
   return (
     <div>
-      <Box padding="100px 40px">
+      <Box padding="80px 40px" as="section">
         <Title> Hello </Title>
         <Text>
           In today's world, the phone has become such an indispensable accessory
@@ -27,6 +27,7 @@ const Home = () => {
         width="100%"
         height="700px"
         overflow="hidden"
+        padding="0px"
       >
         <img class="backgroundImg" src={phoneBookimg} alt=""></img>
       </Box>

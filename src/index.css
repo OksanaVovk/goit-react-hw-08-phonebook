@@ -14,29 +14,9 @@ code {
     monospace;
 }
 
-/* div {
-  padding: 20px;
-} */
-
 #root {
-  width: 1200px;
+  width: 1280px;
   max-height: auto;
-}
-/* form {
-  padding: 20px;
-  display: flex;
-  max-width: 30%;
-  flex-direction: column;
-  align-items: flex-start;
-  border: 2px black solid;
-} */
-
-h1 {
-  font-size: 30px;
-}
-
-h2 {
-  font-size: 25px;
 }
 
 label {
@@ -47,7 +27,7 @@ label {
   font-weight: bold;
 }
 
-button {
+/* button {
   border: 1px solid rgba(0, 0, 0, 0.15);
   border-radius: 4px;
   padding: 2px 22px;
@@ -68,11 +48,11 @@ button:hover,
 button:focus {
   background-color: blue;
   color: white;
-}
+} */
 
-.main_button {
+/* .main_button {
   padding: 5px 22px;
-}
+} */
 
 input {
   padding: 5px 22px;
@@ -103,22 +83,12 @@ input {
   height: auto;
   object-fit: cover;
   object-position: 60% -90px;
-  max-width: 1200px;
+  width: 1280px;
+  margin: 0;
 }
 a {
   text-decoration: none;
 }
-
-/* header {
-  display: flex;
-  flex-direction: row;
-  justify-content: space-between;
-} */
-
-/* nav {
-  display: flex;
-  gap: 10px;
-} */
 
 .overlay {
   position: fixed;
@@ -137,4 +107,14 @@ a {
   max-width: calc(100vw - 48px);
   max-height: calc(100vh - 24px);
   background-color: white;
+}
+
+span {
+  margin-left: 10px;
+}
+
+h1,
+h2 {
+  margin: 0;
+  padding: 0;
 }
