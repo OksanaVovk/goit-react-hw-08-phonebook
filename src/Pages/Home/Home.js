@@ -36,22 +36,12 @@ const Home = () => {
               <img src={clickPng} width="100px" alt=""></img>
             </Link>
           ) : (
-            <Link to="/login">
+            <Link to="/login" className="imgLink">
               <img src={clickPng} width="100px" alt=""></img>
             </Link>
           )}
         </Box>
       </Box>
-      {/* <Box
-        as="section"
-        display="block"
-        width="100%"
-        height="700px"
-        overflow="hidden"
-        padding="0px"
-      >
-        <img className="backgroundImg" src={phoneBookimg} alt=""></img>
-      </Box> */}
     </div>
   );
 };
