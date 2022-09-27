@@ -1,9 +1,9 @@
 import AppBar from './AppBar';
 import { Route, Routes } from 'react-router-dom';
-// import authOperations from 'redux/auth/auth-operations';
-// import { useEffect } from 'react';
-import { useSelector } from 'react-redux';
-// import { useDispatch, useSelector } from 'react-redux';
+import authOperations from 'redux/auth/auth-operations';
+import { useEffect } from 'react';
+// import { useSelector } from 'react-redux';
+import { useDispatch, useSelector } from 'react-redux';
 import { lazy, Suspense } from 'react';
 import Spinner from './Spinner';
 import PrivateRoute from './PrivateRoute';
@@ -18,15 +18,15 @@ const RegisterForm = lazy(() => import('../Pages/RegisterForm'));
 const LoginForm = lazy(() => import('../Pages/LoginForm/LoginForm'));
 
 export const App = () => {
-  // const dispatch = useDispatch();
+  const dispatch = useDispatch();
   const isFetchingCurrentUser = useSelector(
     authSelector.getIsFetchingCurrentUser
   );
   const showModal = useSelector(state => state.fatch.showModal);
 
-  // useEffect(() => {
-  //   dispatch(authOperations.fetchCurrentUser());
-  // }, [dispatch]);
+  useEffect(() => {
+    dispatch(authOperations.fetchCurrentUser());
+  }, [dispatch]);
 
   return (
     !isFetchingCurrentUser && (
