@@ -12,34 +12,48 @@ const token = {
   },
 };
 
-const register = createAsyncThunk('auth/register', async credentials => {
-  try {
-    const { data } = await axios.post('/users/signup', credentials);
-    token.set(data.token);
-    Notify.success(`User ${data.user.name} successfully registered`);
-    return data;
-  } catch (error) {
-    console.error(error);
+const register = createAsyncThunk(
+  'auth/register',
+  async (credentials, thunkAPI) => {
+    try {
+      const { data } = await axios.post('/users/signup', credentials);
+      token.set(data.token);
+      Notify.success(`User ${data.user.name} successfully registered`);
+      return data;
+    } catch (error) {
+      console.error(error);
+      if (!error.response) {
+        throw error;
+      }
+      return thunkAPI.rejectWithValue(error.response.data);
+    }
   }
-});
+);
 
-const logIn = createAsyncThunk('auth/login', async credentials => {
+const logIn = createAsyncThunk('auth/login', async (credentials, thunkAPI) => {
   try {
     const { data } = await axios.post('/users/login', credentials);
     token.set(data.token);
     return data;
   } catch (error) {
     Notify.failure('Invalid login or password');
-    console.error(error);
+    if (!error.response) {
+      throw error;
+    }
+    return thunkAPI.rejectWithValue(error.response.data);
   }
 });
 
-const logOut = createAsyncThunk('auth/logout', async () => {
+const logOut = createAsyncThunk('auth/logout', async thunkAPI => {
   try {
     await axios.post('/users/logout');
     token.unset();
   } catch (error) {
     console.error(error);
+    if (!error.response) {
+      throw error;
+    }
+    return thunkAPI.rejectWithValue(error.response.data);
   }
 });
 
@@ -48,15 +62,19 @@ const fetchCurrentUser = createAsyncThunk(
   async (_, thunkAPI) => {
     const state = thunkAPI.getState();
     const persistedToken = state.auth.token;
-    if (persistedToken === null) {
-      return thunkAPI.rejectWithValue();
-    }
+    // if (persistedToken === null) {
+    //   return thunkAPI.rejectWithValue();
+    // }
     token.set(persistedToken);
     try {
       const { data } = await axios.get('/users/current');
       return data;
     } catch (error) {
       console.error(error);
+      if (!error.response) {
+        throw error;
+      }
+      return thunkAPI.rejectWithValue(error.response.data);
     }
   }
 );
