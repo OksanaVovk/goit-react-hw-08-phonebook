@@ -37,6 +37,7 @@ const ContactItem = ({ id, name, number }) => {
         <ListItemAvatar>
           <Tooltip title="Edit">
             <IconButton
+              sx={{ mr: 1 }}
               edge="end"
               aria-label="edit"
               onClick={() => onBtnEditClick(id, name, number)}
