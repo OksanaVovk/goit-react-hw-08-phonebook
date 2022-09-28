@@ -21,7 +21,6 @@ const register = createAsyncThunk(
       Notify.success(`User ${data.user.name} successfully registered`);
       return data;
     } catch (error) {
-      // console.error(error);
       if (!error.response) {
         throw error;
       }
@@ -49,7 +48,6 @@ const logOut = createAsyncThunk('auth/logout', async thunkAPI => {
     await axios.post('/users/logout');
     token.unset();
   } catch (error) {
-    // console.error(error);
     if (!error.response) {
       throw error;
     }
@@ -70,7 +68,6 @@ const fetchCurrentUser = createAsyncThunk(
       const { data } = await axios.get('/users/current');
       return data;
     } catch (error) {
-      // console.error(error);
       if (!error.response) {
         throw error;
       }

@@ -5,7 +5,6 @@ const initialState = {
   token: null,
   isLoggedIn: false,
   isFechingCurrentUser: false,
-  // error: false,
 };
 
 const authSlice = createSlice({
@@ -13,19 +12,11 @@ const authSlice = createSlice({
   initialState,
   extraReducers: {
     [authOperations.register.fulfilled](state, action) {
-      // if (action.payload === 400) {
-      //   state.error = true;
-      //   return;
-      // }
       state.user = action.payload.user;
       state.token = action.payload.token;
       state.isLoggedIn = true;
     },
     [authOperations.logIn.fulfilled](state, action) {
-      // if (action.payload === 400) {
-      //   state.error = true;
-      //   return;
-      // }
       state.user = action.payload.user;
       state.token = action.payload.token;
       state.isLoggedIn = true;
