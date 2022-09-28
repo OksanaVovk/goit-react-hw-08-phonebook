@@ -20,7 +20,7 @@ const Home = () => {
           of a person or even an entire organization. Many users have problems
           managing countless contacts. We offer an effective way of saving data,
           using which you can forever forget about the problems associated with
-          finding the right phone numbers.On our website, you can create your
+          finding the right phone numbers. On our website, you can create your
           own personal phone directory, in which you can easily add, search,
           edit and delete contacts.{' '}
         </Text>
