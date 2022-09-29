@@ -7,7 +7,6 @@ import { useSelector } from 'react-redux';
 
 const Home = () => {
   const isLoggedIn = useSelector(authSelector.getIsLoggedIn);
-  // const phoneBookimg = phonebook;
   const clickPng = phonebookClick;
   return (
     <div>
