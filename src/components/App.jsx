@@ -35,7 +35,7 @@ export const App = () => {
         <AppBar />
         <Suspense fallback={<Spinner />}>
           <Routes>
-            <Route path="/goit-react-hw-08-phonebook" element={<Home />} />
+            <Route path="/" element={<Home />} />
             <Route
               path="/contacts"
               element={
